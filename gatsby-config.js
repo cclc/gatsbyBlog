@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Lc's blog`,
+    description: `This is Lc's blog. Sharing technical discoveries`,
+    author: `@cclc`,
+    email: `luchen111@vip.qq.com`,
+    logo:  `logo.jpeg`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -30,7 +32,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/markdown`,
+        path: `${__dirname}/markdown/blog`,
         name: "markdown-pages",
       },
     },
