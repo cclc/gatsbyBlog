@@ -1,14 +1,43 @@
 import React from "react"
-
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import PostLink from "../components/post-link"
 
-const NotFoundPage = () => (
-  <Layout>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
-)
+const IndexPage = ({
+  data: {
+    allMarkdownRemark: { edges },
+  },
+}) => {
+  const Posts = edges
+    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+    .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
 
-export default NotFoundPage
+  return (
+    <Layout>
+      <SEO title="Blog" keywords={[`cclc`, `blog`, `web`]} />
+      <div>{Posts}</div>
+    </Layout>
+  )
+}
+
+export default IndexPage
+
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 250)
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            path
+            title
+            tags
+          }
+        }
+      }
+    }
+  }
+`

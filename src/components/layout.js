@@ -18,7 +18,7 @@ const Layout = ({ children }) => (
       query SiteTitleQuery {
         site {
           siteMetadata {
-            title,
+            title
             logo
           }
         }
@@ -26,18 +26,20 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title} logo={data.site.siteMetadata.logo} />
+        <Header
+          siteTitle={data.site.siteMetadata.title}
+          logo={data.site.siteMetadata.logo}
+        />
         <div
           style={{
             margin: `0 auto`,
             maxWidth: 960,
             padding: `0px 1.0875rem 1.45rem`,
             paddingTop: 0,
-            textAlign:`center`
           }}
         >
           <main className="content">{children}</main>
-          <footer style={{marginTop:`1.45rem`,alignSelf: `flex-end`}}>
+          <footer style={{ marginTop: `1.45rem`, textAlign: `center` }}>
             © {new Date().getFullYear()}, Built with
             {` `}
             <a href="https://www.gatsbyjs.org">Gatsby</a>

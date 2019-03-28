@@ -30,7 +30,7 @@ import Img from "gatsby-image"
 //   />
 // )
 
-const Image = (props) => (
+const Image = props => (
   <StaticQuery
     query={graphql`
       query {
@@ -49,21 +49,16 @@ const Image = (props) => (
         }
       }
     `}
-
-    render={(data) => {
+    render={data => {
       const image = data.images.edges.find(n => {
-        return n.node.relativePath.includes(props.filename);
-      });
-      if (!image) { return null; }
-      
-      const imageSizes = image.node.childImageSharp.sizes;
-      return (
-        <Img
-          alt={props.alt}
-          sizes={imageSizes}
-          style={props.style}
-        />
-      );
+        return n.node.relativePath.includes(props.filename)
+      })
+      if (!image) {
+        return null
+      }
+
+      const imageSizes = image.node.childImageSharp.sizes
+      return <Img alt={props.alt} sizes={imageSizes} style={props.style} />
     }}
   />
 )
