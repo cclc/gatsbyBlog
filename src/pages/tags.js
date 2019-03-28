@@ -1,11 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
-
+import SEO from "../components/seo"
 // Utilities
 import kebabCase from "lodash/kebabCase"
 
 // Components
-import { Helmet } from "react-helmet"
+// import { Helmet } from "react-helmet"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 
@@ -19,7 +19,8 @@ const TagsPage = ({
 }) => (
   <Layout>
     <div>
-      <Helmet title={title} />
+      {/* <Helmet title={title} /> */}
+      <SEO title="Tags" />
       <div>
         <h1>Tags</h1>
         <ul>
