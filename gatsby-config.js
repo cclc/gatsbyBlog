@@ -4,7 +4,7 @@ module.exports = {
     description: `This is cclc's blog. Sharing technical discoveries`,
     author: `@cclc`,
     email: `luchen111@vip.qq.com`,
-    logo:  `logo.jpeg`
+    logo: `logo.jpeg`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -37,6 +37,14 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+        trackingId: "UA-137237260-1",
+        head: true,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
