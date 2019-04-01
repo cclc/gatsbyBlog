@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import Helmet from 'react-helmet'
+import Helmet from "react-helmet"
 import "./layout.css"
 
 const Layout = ({ children }) => (
@@ -28,7 +28,10 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <Helmet>
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <script
+            async
+            src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          />
           <script>
             {`(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-8058549461241050",enable_page_level_ads: true});`}
           </script>
